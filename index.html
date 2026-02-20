@@ -312,18 +312,6 @@
                 <div id="map"></div>
             </div>
             
-            <form action="https://formspree.io/f/xvzbbqzp" method="POST">
-  
-                <input type="text" name="name" placeholder="Your Name" required>
-                
-                <input type="email" name="email" placeholder="Your Email" required>
-                
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-
-                </form>
-            <!--
             <form id="contactForm" class="contact-form">
                 <div class="input-group">
                     <label>Your Name</label>
@@ -341,7 +329,7 @@
                     <i class="fa-solid fa-paper-plane"></i>
                     Send Message
                 </button>
-            </form> -->
+            </form> 
         </div>
     </div>
 </section>
@@ -386,6 +374,24 @@
 
 <!-- Main JS -->
 <script src="script.js"></script>
+
+<!--EMAIL CODE-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("Pt292xGFpKTtdCMFc");
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_9f0re06", "template_oct9xwl", this)
+        .then(function() {
+            alert("Message sent successfully!");
+        }, function(error) {
+            alert("Failed to send message.");
+        });
+  });
+</script>
 
 </body>
 </html>
